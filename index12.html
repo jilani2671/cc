@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Crafter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
+    <style>
+        /* Styles for the webpage */
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            margin-top: auto;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #002B5C;
+            color: #ffffff;
+        }
+
+        .footer-section {
+            padding: 20px 0;
+        }
+
+        /* Dark Blue Theme Colors */
+        :root {
+            --primary-dark: #0A1E5E;
+            --secondary-dark: #1C3A87;
+            --accent-light: #E8EAF6;
+            --button-hover: #5f626b;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--accent-light);
+            padding: 60px 0;
+            height: 500px;
+        }
+
+        .hero-section .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            border: none;
+            color: var(--accent-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: var(--secondary-dark);
+            color: var(--accent-light);
+        }
+
+        /* Navbar */
+        .navbar-dark .navbar-nav .nav-link {
+            color: var(--accent-light);
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active, 
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
+        .projects-section, .reviews-section {
+            position: relative;
+            color: #ffffff;
+        }
+
+        .project-box, .review-box {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            border-radius: 0.5rem; /* Rounded corners */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-box:hover, .review-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-icon i, .review-icon i {
+            color: #ffffff; /* White icons for better visibility */
+        }
+
+        .project-title, .review-name {
+            color: #ffffff; /* White text color for titles and names */
+        }
+
+        .project-text, .review-text {
+            color: #cccccc; /* Light grey text color for descriptions */
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        .social-media-icons a {
+            transition: color 0.3s; /* Smooth color transition on hover */
+        }
+
+        .social-media-icons a:hover {
+            color: #007bff; /* Highlight color for social media icons on hover */
+        }
+
+        .social-media-icons i {
+            font-size: 2rem; /* Set icon size */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1.5s ease forwards;
+        }
+
+        .animate-zoom-in {
+            animation: zoomIn 1.5s ease forwards;
+        }
+
+        /* Add a delay for elements */
+        [style*="animation-delay"] {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CODECrafter</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Enquiry</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-md-7 text-md-start text-center">
+                    <h1 class="display-4 fw-bold mb-3 animate-fade-in">Quality Of Our Design Speaks For Us</h1>
+                    <p class="lead mb-4 animate-fade-in" style="animation-delay: 0.5s;">Take your business to the next level with our Website Design and Development Services</p>
+                    <button class="btn btn-dark btn-lg animate-slide-up" >Contact Us</button>
+                </div>
+                <div class="col-md-5 d-none d-md-block">
+                    <!-- Hero Icons or Illustrations -->
+                    
+                </div>
+            </div>
+            <!-- Background Pattern -->
+            <div class="hero-pattern position-absolute top-0 start-0 w-100 h-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none" class="animate-fade-in" style="animation-delay: 0.5s;">
+                    <circle cx="400" cy="400" r="400" fill="rgba(255,255,255,0.05)"/>
+                    <circle cx="600" cy="200" r="200" fill="rgba(255,255,255,0.1)"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+       
+   <!-- About Section -->
+   <section class="about-section text-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="display-5 fw-bold mb-4 animate-fade-in">The Best Code Crafters Solution</h2>
+                <p class="lead mb-5 animate-fade-in" style="animation-delay: 0.5s;">Innovative solutions tailored to meet the unique needs of your business.</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4 border rounded shadow-sm animate-slide-up" style="animation-delay: 1s;">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-lightbulb" style="font-size: 2rem; color: #2C3E50;"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Innovative Ideas</h4>
+                    <p class="feature-text">We bring cutting-edge ideas to life to give your business a unique edge.</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4 border rounded shadow-sm animate-slide-up" style="animation-delay: 1.5s;">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-gear" style="font-size: 2rem; color: #2C3E50;"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Technical Expertise</h4>
+                    <p class="feature-text">Our expert team provides top-notch technical solutions tailored for your needs.</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4 border rounded shadow-sm animate-slide-up" style="animation-delay: 2s;">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-people" style="font-size: 2rem; color: #2C3E50;"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Client-Focused</h4>
+                    <p class="feature-text">We prioritize your success with personalized and responsive services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Projects Section -->
+<section class="projects-section text-center py-5" style="background: linear-gradient(135deg, #1C3A87, #002B5C); color: #ffffff;">
+    <div class="container">
+        <h2 class="display-5 fw-bold mb-4 animate-fade-in">Recently Launched Projects</h2>
+        <p class="lead mb-5 animate-fade-in" style="animation-delay: 0.5s;">Discover some of the latest projects we've crafted for our clients.</p>
+        
+        <div class="row">
+            <!-- Project 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="project-box p-4 border rounded shadow-lg animate-slide-up" style="animation-delay: 1s; background: rgba(255, 255, 255, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
+                    <div class="project-icon mb-3">
+                        <i class="bi bi-laptop" style="font-size: 2rem; color: #ffffff;"></i>
+                    </div>
+                    <h4 class="project-title fw-bold">Responsive Web Design</h4>
+                    <p class="project-text">Crafted a modern and responsive website for an e-commerce platform.</p>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="project-box p-4 border rounded shadow-lg animate-slide-up" style="animation-delay: 1.5s; background: rgba(255, 255, 255, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
+                    <div class="project-icon mb-3">
+                        <i class="bi bi-phone" style="font-size: 2rem; color: #ffffff;"></i>
+                    </div>
+                    <h4 class="project-title fw-bold">Mobile App Development</h4>
+                    <p class="project-text">Developed a user-friendly mobile application for a logistics company.</p>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="project-box p-4 border rounded shadow-lg animate-slide-up" style="animation-delay: 2s; background: rgba(255, 255, 255, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
+                    <div class="project-icon mb-3">
+                        <i class="bi bi-cloud" style="font-size: 2rem; color: #ffffff;"></i>
+                    </div>
+                    <h4 class="project-title fw-bold">Cloud Solutions</h4>
+                    <p class="project-text">Implemented cloud infrastructure to streamline business operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background Pattern -->
+    <div class="projects-pattern position-absolute top-0 start-0 w-100 h-100">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none" class="animate-fade-in" style="animation-delay: 0.5s;">
+            <circle cx="400" cy="400" r="400" fill="rgba(255,255,255,0.05)"/>
+            <circle cx="600" cy="200" r="200" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+    </div>
+</section>
+
+<!-- Customer Reviews Section -->
+<section class="reviews-section text-center py-5" style="background: linear-gradient(135deg, #003366, #1C3A87); color: #ffffff;">
+    <div class="container">
+        <h2 class="display-5 fw-bold mb-4 animate-fade-in">What Our Clients Say</h2>
+        <p class="lead mb-5 animate-fade-in" style="animation-delay: 0.5s;">Hear from those who have experienced our exceptional services firsthand.</p>
+        
+        <!-- Carousel -->
+        <div id="reviewsCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <!-- Review 1 -->
+                <div class="carousel-item active">
+                    <div class="review-box text-center p-4 mx-3" style="background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <div class="review-icon mb-3">
+                            <i class="bi bi-person-circle" style="font-size: 4rem; color: #ffffff;"></i>
+                        </div>
+                        <h4 class="review-name fw-bold">Jane Doe</h4>
+                        <p class="review-text">"The team at Code Crafters transformed our website with their innovative design. We couldn’t be happier with the results!"</p>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="carousel-item">
+                    <div class="review-box text-center p-4 mx-3" style="background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <div class="review-icon mb-3">
+                            <i class="bi bi-person-circle" style="font-size: 4rem; color: #ffffff;"></i>
+                        </div>
+                        <h4 class="review-name fw-bold">John Smith</h4>
+                        <p class="review-text">"Exceptional service and professionalism. The new design has greatly enhanced our user experience."</p>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="carousel-item">
+                    <div class="review-box text-center p-4 mx-3" style="background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <div class="review-icon mb-3">
+                            <i class="bi bi-person-circle" style="font-size: 4rem; color: #ffffff;"></i>
+                        </div>
+                        <h4 class="review-name fw-bold">Emily Johnson</h4>
+                        <p class="review-text">"Their creativity and attention to detail were impressive. We saw a significant increase in user engagement."</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#reviewsCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#reviewsCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+    </div>
+    <!-- Background Pattern -->
+    <div class="reviews-pattern position-absolute top-0 start-0 w-100 h-100">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none" class="animate-fade-in" style="animation-delay: 0.5s;">
+            <circle cx="400" cy="400" r="400" fill="rgba(255,255,255,0.05)"/>
+            <circle cx="600" cy="200" r="200" fill="rgba(255,255,255,0.1)"/>
+        </svg>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer-section text-center py-5 clearfix" style="background-color: #002B5C; color: #ffffff;">
+<div class="container">
+    <!-- Contact Information -->
+    <div class="row mb-4">
+        <div class="col-lg-4 mb-3 mb-lg-0">
+            <h5 class="fw-bold mb-3">Get In Touch</h5>
+            <p class="mb-1">
+                R.S.No. 590 Office No.3 First Floor, Shahupuri Complex, Vyapari Peth,<br>
+                Kolhapur
+            </p>
+        </div>
+        <div class="col-lg-4 mb-3 mb-lg-0">
+            <h5 class="fw-bold mb-3">Contact Us</h5>
+            <p class="mb-1">
+                <a href="tel:+919518396964" class="text-white"><i class="bi bi-telephone" style="font-size: 1.2rem;"></i> +91 9518396964</a>
+            </p>
+            <p class="mb-0">
+                <a href="mailto:codecrafterservices@gmail.com" class="text-white"><i class="bi bi-envelope" style="font-size: 1.2rem;"></i> codecrafterservices@gmail.com</a>
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <h5 class="fw-bold mb-3">Follow Us</h5>
+            <div class="social-media-icons">
+                <a href="https://www.instagram.com" class="text-white me-3" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram" style="font-size: 2rem;"></i>
+                </a>
+                <a href="https://www.facebook.com" class="text-white me-3" target="_blank" aria-label="Facebook">
+                    <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                </a>
+                <a href="https://www.linkedin.com" class="text-white me-3" target="_blank" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
+                </a>
+                <a href="https://www.youtube.com" class="text-white" target="_blank" aria-label="YouTube">
+                    <i class="bi bi-youtube" style="font-size: 2rem;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright Notice -->
+    <div class="border-top pt-3 mt-3">
+        <a href="#" class="text-white ">
+        <p class="mb-0">
+            Designed by © 2024 Code Crafter Services. </a>
+        </p>
+    </div>
+</div>
+</footer>
+
+    <!-- Footer Section -->
+    <footer class="text-white">
+        <div class="container footer-section">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>About Us</h5>
+                    <p class="text-light">CODECrafter is dedicated to delivering high-quality web design and development solutions, helping businesses achieve their online potential.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">About</a></li>
+                        <li><a href="#" class="text-white">Services</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect with Us</h5>
+                    <ul class="list-inline social-media-icons">
+                        <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white"><i class="bi bi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center pb-3">
+                <p class="mb-0">&copy; 2024 CODECrafter. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
